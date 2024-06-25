@@ -2,6 +2,5 @@ streamlit
 pandas
 scikit-learn
 pickle
-scikit-learn==0.24.2
-numpy==1.21.0
-pandas==1.3.0
+numpy
+
