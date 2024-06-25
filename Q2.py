@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Step 1: Connect to the SQLite database and read the data
+#Connect to the SQLite database and read the data
 conn = sqlite3.connect('heart_disease.db')
 df = pd.read_sql_query("SELECT * FROM heart_data", conn)
 conn.close()
@@ -12,11 +12,11 @@ conn.close()
 # Display the first few rows of the dataframe
 print(df.head())
 
-# Step 2: Data Cleaning and Preprocessing
+#Data Cleaning and Preprocessing
 # Check for missing values
 print("Missing values in each column:\n", df.isnull().sum())
 
-# Fill missing values (if any) - here we're using the mean for numeric columns and mode for categorical
+# Fill missing values (if any)
 for column in df.columns:
     if df[column].dtype == 'object':
         df[column].fillna(df[column].mode()[0], inplace=True)
@@ -37,7 +37,7 @@ df[df.select_dtypes(include=['float64', 'int64']).columns] = scaler.fit_transfor
 # Display the cleaned and preprocessed data
 print("Cleaned and Preprocessed Data:\n", df.head())
 
-# Step 3: Plot the distribution of classes for categorical variables based on the target variable
+#Plot the distribution of classes for categorical variables based on the target variable
 target = 'target'  
 
 # Select categorical columns excluding the target column
@@ -52,7 +52,7 @@ for column in categorical_columns:
     plt.title(f'Distribution of {column} based on {target}')
     plt.show()
 
-# Step 4: Plot the distribution of classes for numeric variables based on the target variable
+#Plot the distribution of classes for numeric variables based on the target variable
 numeric_columns = df.select_dtypes(include=['float64']).columns.tolist()
 
 # Plot the distribution of classes for each numeric variable based on the target variable
