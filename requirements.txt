@@ -1,7 +1,5 @@
-pip install scikit-learn
+
 streamlit
 pandas
 scikit-learn
-pickle 
-numpy
 
