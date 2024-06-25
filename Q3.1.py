@@ -3,12 +3,12 @@ import sqlite3
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
 
-# Step 1: Connect to the SQLite database and read the data
+#Connect to the SQLite database and read the data
 conn = sqlite3.connect('heart_disease.db')
 df = pd.read_sql_query("SELECT * FROM heart_data", conn)
 conn.close()
 
-# Step 2: Data Cleaning and Preprocessing
+#Data Cleaning and Preprocessing
 # Fill missing values (if any)
 for column in df.columns:
     if df[column].dtype == 'object':
