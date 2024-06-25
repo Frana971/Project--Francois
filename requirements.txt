@@ -1,7 +1,7 @@
+pip install scikit-learn
 streamlit
 pandas
 scikit-learn
 pickle 
 numpy
-pip install --upgrade pip
-pip install -r requirements.txt
+
